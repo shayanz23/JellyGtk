@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="JellyplayerSignInWindow" parent="AdwWindow">
+    <property name="default-width">400</property>
+    <property name="default-height">400</property>
+    <property name="title" translatable="yes">Sign In</property>
+    <signal handler="on_close_request" name="close-request" swapped="no"/>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkHeaderBar" id="header_bar">
+          </object>
+        </child>
+        <child>
+          <object class="AdwClamp">
+            <property name="margin-top">50</property>
+            <property name="margin-start">30</property>
+            <property name="margin-end">30</property>
+            <child>
+                <object class="AdwPreferencesGroup">
+                    <child>
+                      <object class="AdwEntryRow">
+                        <property name="title" translatable="yes">Jellyfin server Url:</property>
+                        <property name="text">https://</property>
+                      </object>
+                    </child>
+                  </object>
+              </child>
+        </object>
+        </child>
+        <child>
+          <object class="AdwClamp">
+            <property name="margin-top">40</property>
+            <property name="margin-start">30</property>
+            <property name="margin-end">30</property>
+            <child>
+                <object class="AdwPreferencesGroup">
+                    <child>
+                      <object class="AdwEntryRow">
+                        <property name="title" translatable="yes">Username:</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwPasswordEntryRow">
+                        <property name="title" translatable="yes">Password:</property>
+                      </object>
+                    </child>
+                  <child>
+                  <object class="GtkBox" id="button_box_1">
+                    <property name="margin-top">35</property>
+                    <property name="halign">end</property>
+                                <child>
+                                  <object class="GtkButton" id="sign_in_button">
+                                    <property name="label" translatable="yes">Sign In</property>
+                                    <property name="tooltip-text">Sign In to Jellyfin</property>
+                                    <property name="can-shrink">True</property>
+                                    <signal handler="on_sign_in_button_clicked" name="clicked" swapped="no"/>
+                                    <style>
+                                      <class name="suggested-action"/>
+                                    </style>
+                                  </object>
+                                </child>
+                  </object>
+                    </child>
+                  </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+
+  </template>
+</interface>
+

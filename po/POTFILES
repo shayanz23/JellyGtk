@@ -1,0 +1,6 @@
+data/com.shayanz23.JellyPlayer.desktop.in
+data/com.shayanz23.JellyPlayer.appdata.xml.in
+data/com.shayanz23.JellyPlayer.gschema.xml
+src/main.vala
+src/window.vala
+src/window.ui

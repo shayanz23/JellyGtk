@@ -1,0 +1,13 @@
+<svg height="128px" viewBox="0 0 128 128" width="128px" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#AA5CC3" />
+      <stop offset="100%" stop-color="#00A4DC" />
+    </linearGradient>
+  </defs>
+
+  <rect width="108" height="108" x="10" y="10" rx="25" ry="25" style="fill:#000B25" />
+  <polygon style="fill:url(#gradient1);stroke:url(#gradient1);stroke-width:2;stroke-linejoin:round"
+    points="34,100 34,28 100,64" />
+  <polygon style="fill:#000B25;stroke:#000B25;stroke-width:2;stroke-linejoin:round" points="48,77 48,51 74,64" />
+</svg>

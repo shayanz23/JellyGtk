@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=jellyplayer
+Exec=jellyplayer
+Icon=com.shayanz23.JellyPlayer
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true
