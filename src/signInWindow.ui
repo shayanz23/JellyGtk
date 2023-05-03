@@ -56,7 +56,6 @@
                                   <object class="GtkButton" id="sign_in_button">
                                     <property name="label" translatable="yes">Sign In</property>
                                     <property name="tooltip-text">Sign In to Jellyfin</property>
-                                    <property name="can-shrink">True</property>
                                     <signal handler="on_sign_in_button_clicked" name="clicked" swapped="no"/>
                                     <style>
                                       <class name="suggested-action"/>

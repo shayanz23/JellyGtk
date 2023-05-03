@@ -2,9 +2,9 @@
 namespace Jellyplayer {
     [GtkTemplate (ui = "/com/shayanz23/JellyPlayer/signInWindow.ui")]
     public class SignInWindow : Adw.Window {
-        private Gtk.Application application;
+        private Jellyplayer.Application application;
 
-        public SignInWindow (Gtk.Application app) {
+        public SignInWindow (Jellyplayer.Application app) {
             application = app;
         }
 
@@ -16,6 +16,7 @@ namespace Jellyplayer {
 
         [GtkCallback]
         private void on_sign_in_button_clicked() {
+            application.signedIn = true;
             this.destroy();
         }
     }

@@ -20,7 +20,7 @@
 
 namespace Jellyplayer {
     public class Application : Adw.Application {
-        private bool signedIn;
+        public bool signedIn { get; set; }
         public Application () {
             Object (application_id: "com.shayanz23.JellyPlayer", flags: ApplicationFlags.DEFAULT_FLAGS);
 
@@ -45,9 +45,8 @@ namespace Jellyplayer {
                 win = new Jellyplayer.Window (this);
             }
             win.present ();
-            if (signedIn == false) {
-                show_login_window();
-            }
+
+            show_login_window();
         }
 
         private void on_about_action () {
@@ -66,11 +65,13 @@ namespace Jellyplayer {
         }
 
         private void show_login_window() {
-            var signIn = new Jellyplayer.SignInWindow (this) {
-                transient_for = this.active_window,
-                modal = true,
-            };
-            signIn.present ();
+            if (signedIn == false) {
+                var signIn = new Jellyplayer.SignInWindow (this) {
+                    transient_for = this.active_window,
+                    modal = true,
+                };
+                signIn.present ();
+            }
         }
 
         private void on_preferences_action () {
@@ -86,3 +87,4 @@ namespace Jellyplayer {
 
     }
 }
+

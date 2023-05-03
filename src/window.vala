@@ -21,12 +21,16 @@
 namespace Jellyplayer {
     [GtkTemplate (ui = "/com/shayanz23/JellyPlayer/window.ui")]
     public class Window : Adw.ApplicationWindow {
-        [GtkChild]
-        private unowned Gtk.Label label;
 
         public Window (Gtk.Application app) {
             Object (application: app);
         }
+
+        [GtkCallback]
+        public void back_clicked_cb (Gtk.Button source) {
+            // Your callback code here
+        }
     }
 }
+
 
