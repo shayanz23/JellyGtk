@@ -1,6 +1,6 @@
 /* application.vala
  *
- * Copyright 2023 Jack
+ * Copyright 2023 Shayan Zahedanaraki
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -50,15 +50,15 @@ namespace Jellyplayer {
         }
 
         private void on_about_action () {
-            string[] developers = { "Jack" };
+            string[] developers = { "Shayan" };
             var about = new Adw.AboutWindow () {
                 transient_for = this.active_window,
                 application_name = "jellyplayer",
                 application_icon = "com.shayanz23.JellyPlayer",
-                developer_name = "Jack",
+                developer_name = "Shayan Zahedanaraki",
                 version = "0.1.0",
                 developers = developers,
-                copyright = "© 2023 Jack",
+                copyright = "© 2023 Shayan Zahedanaraki",
             };
 
             about.present ();

@@ -1,8 +1,8 @@
 
 namespace Jellyplayer {
-    [GtkTemplate (ui = "/com/shayanz23/JellyPlayer/signInWindow.ui")]
+    [GtkTemplate (ui = "/com/shayanz23/JellyPlayer/gtk/signInWindow.ui")]
     public class SignInWindow : Adw.Window {
-        private Jellyplayer.Application application;
+        private new Jellyplayer.Application application;
 
         public SignInWindow (Jellyplayer.Application app) {
             application = app;
