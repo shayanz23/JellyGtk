@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="jellyplayer">
 	<schema id="com.shayanz23.JellyPlayer" path="/com/shayanz23/JellyPlayer/">
+	  <key name="pos-x" type ="i">
+	    <default>360</default>
+	    <summary>Horizontal position</summary>
+	    <description>The saved horizontal position for our window.</description>
+	  </key>
+
+	  <key name="pos-y" type ="i">
+	    <default>360</default>
+	    <summary>Vertical position</summary>
+	    <description>The saved vertical position for our window.</description>
+	  </key>
+
+	  <key name="window-width" type ="i">
+	    <default>600</default>
+	    <summary>Window width</summary>
+	    <description>The saved width for our window.</description>
+	  </key>
+
+	  <key name="window-height" type ="i">
+	    <default>400</default>
+	    <summary>Window height</summary>
+	    <description>The saved height for our window.</description>
+	  </key>
 	</schema>
 </schemalist>

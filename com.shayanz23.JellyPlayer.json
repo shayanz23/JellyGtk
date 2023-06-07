@@ -17,7 +17,9 @@
     "build-options" : {
         "append-path" : "/usr/lib/sdk/vala/bin",
         "prepend-ld-library-path" : "/usr/lib/sdk/vala/lib",
-        "env" : {        }
+        "env" : {
+    "PKG_CONFIG_PATH" : "/app/lib/pkgconfig:/app/share/pkgconfig:/usr/lib/pkgconfig:/usr/share/pkgconfig"
+  }
     },
     "cleanup" : [
         "/include",
@@ -32,6 +34,17 @@
         "*.a"
     ],
     "modules" : [
+        {
+      "name": "libsoup",
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://download.gnome.org/sources/libsoup/3.4/libsoup-3.4.2.tar.xz",
+          "sha256": "78c8fa37cb152d40ec8c4a148d6155e2f6947f3f1602a7cda3a31ad40f5ee2f3"
+        }
+      ]
+    },
         {
             "name" : "jellyplayer",
             "builddir" : true,

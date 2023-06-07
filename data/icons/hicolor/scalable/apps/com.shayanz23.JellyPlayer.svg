@@ -6,7 +6,7 @@
     </linearGradient>
   </defs>
 
-  <rect width="108" height="108" x="10" y="10" rx="25" ry="25" style="fill:#000B25" />
+  <rect width="108" height="108" x="10" y="10" rx="20" ry="20" style="fill:#000B25" />
   <polygon style="fill:url(#gradient1);stroke:url(#gradient1);stroke-width:2;stroke-linejoin:round"
     points="34,100 34,28 100,64" />
   <polygon style="fill:#000B25;stroke:#000B25;stroke-width:2;stroke-linejoin:round" points="48,77 48,51 74,64" />
