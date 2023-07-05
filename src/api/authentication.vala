@@ -10,14 +10,16 @@ namespace Jellyfin.Api {
         public static new Jellyplayer.Application Application {get; set;}
 
 
-        public static string login (LoginData login_data, string url) {
+        public static int login (LoginData login_data, string url) {
             authorization = "MediaBrowser Client=\"other\", Device=\"my-script\", DeviceId=\"some-unique-id\", Version=\"0.0.0\"";
             var session = new Soup.Session ();
             var soup_msg = new Soup.Message ("POST", url + "/Users/AuthenticateByName");
+            string json_response;
             soup_msg.request_headers.append ("Authorization", authorization);
             message ("header: " + soup_msg.request_headers.get_one ("Authorization"));
             if (soup_msg == null) {
-                return "invalid url";
+                message ("invalid url");
+                return -1;
             }
 
             var gen = new Json.Generator ();
@@ -27,33 +29,41 @@ namespace Jellyfin.Api {
             gen.set_root(json_node);
 
 
-            string response = get_login_response (session, soup_msg, gen);
+            int response = get_login_response (out json_response ,session, soup_msg, gen);
 
-            if (response.get_char(0) != '{') {
-                return response;
+            if (response != 0) {
+                return -1;
             }
 
-            string access_token = set_token (response);
-            string result = store_token (access_token);
+            string access_token = set_token (json_response);
+            string store_token_result = store_token (access_token);
             string store_url_result = store_url (url);
 
-            if (store_url_result != "success") {
-                return store_url_result;
+            if (store_token_result != "success") {
+                message ("Failure:" + store_token_result);
+                return -1;
             }
-            message (result);
-            message (store_url_result);
 
-            return access_token;
+            if (store_url_result != "success") {
+                message ("Failure:" + store_url_result);
+                return -1;
+            }
+
+            message (store_token_result);
+            message (store_url_result);
+            message (access_token);
+
+            return 0;
         }
 
 
-        public static string get_login_response(Soup.Session session, Soup.Message msg, Json.Generator gen) {
+        public static int get_login_response(out string json_response, Soup.Session session, Soup.Message msg, Json.Generator gen) {
 
             size_t json_length;
 
             string json_string = gen.to_data (out json_length);
             if (json_length == 0) {
-                return "Unable to load json.";
+                return -1;
             }
             message (json_string);
 
@@ -62,10 +72,15 @@ namespace Jellyfin.Api {
 
             try {
                 Bytes bytes = session.send_and_read(msg, null);
-                string res_str = (string)bytes.get_data();
-                return res_str;
+                if (msg.status_code != 200) {
+                    message ("Json response code: " + msg.status_code.to_string ());
+                    return -1;
+                }
+                json_response = (string)bytes.get_data();
+                return 0;
             } catch (Error e) {
-                return e.message;
+                message (e.message);
+                return -1;
             }
         }
 
@@ -78,7 +93,7 @@ namespace Jellyfin.Api {
 
 		        // Get the root node:
 		        Json.Node root_node = parser.get_root();
-;
+
 		        Json.Object root_obj = root_node.get_object();
 
 		        string access_token = root_obj.get_string_member("AccessToken");
@@ -237,6 +252,10 @@ namespace Jellyfin.Api {
 
         try {
             Bytes bytes = session.send_and_read(soup_msg, null);
+            if (soup_msg.status_code != 200) {
+                return -1;
+            }
+            message(soup_msg.status_code.to_string ());
             json_res = (string)bytes.get_data();
             return 0;
         } catch (Error e) {

@@ -41,7 +41,9 @@ namespace Jellyplayer {
                 return;
             }
 
-            message (Jellyfin.Api.Authentication.login(login_data, url_entry.get_text()));
+            if (Jellyfin.Api.Authentication.login(login_data, url_entry.get_text()) != 0) {
+                return;
+            }
 
             application.signedIn = true;
 
