@@ -1,1 +1,1 @@
-i18n.gettext('jellyplayer', preset: 'glib')
+i18n.gettext('jellygtk', preset: 'glib')

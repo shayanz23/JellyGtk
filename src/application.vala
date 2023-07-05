@@ -22,9 +22,7 @@ namespace Jellyplayer {
     public class Application : Adw.Application {
         public bool signedIn { get; set; }
         public Application () {
-            Object (application_id: "com.shayanz23.JellyPlayer", flags: ApplicationFlags.DEFAULT_FLAGS);
-
-            signedIn = false;
+            Object (application_id: "com.shayanz23.JellyGtk", flags: ApplicationFlags.DEFAULT_FLAGS);
         }
 
         construct {
@@ -45,7 +43,7 @@ namespace Jellyplayer {
                 win = new Jellyplayer.Window (this);
             }
             win.present ();
-
+            signedIn = Jellyfin.Api.Authentication.check_token ();
             show_login_window();
         }
 
@@ -53,8 +51,8 @@ namespace Jellyplayer {
             string[] developers = { "Shayan" };
             var about = new Adw.AboutWindow () {
                 transient_for = this.active_window,
-                application_name = "jellyplayer",
-                application_icon = "com.shayanz23.JellyPlayer",
+                application_name = "jellygtk",
+                application_icon = "com.shayanz23.JellyGtk",
                 developer_name = "Shayan Zahedanaraki",
                 version = "0.1.0",
                 developers = developers,
@@ -66,6 +64,7 @@ namespace Jellyplayer {
 
         private void show_login_window() {
             if (signedIn == false) {
+                Jellyfin.Api.Authentication.delete_auth_files ();
                 var signIn = new Jellyplayer.SignInWindow (this) {
                     transient_for = this.active_window,
                     modal = true,

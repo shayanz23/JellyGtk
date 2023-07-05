@@ -3,7 +3,7 @@
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
   <template class="JellyplayerWindow" parent="AdwApplicationWindow">
-    <property name="title" translatable="yes">JellyPlayer</property>
+    <property name="title" translatable="yes">JellyGtk</property>
     <property name="default-width">1300</property>
     <property name="default-height">800</property>
     <child>
@@ -193,10 +193,9 @@
         <attribute name="action">app.sign-out</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">_About JellyPlayer</attribute>
+        <attribute name="label" translatable="yes">_About JellyGtk</attribute>
         <attribute name="action">app.about</attribute>
       </item>
     </section>
   </menu>
 </interface>
-

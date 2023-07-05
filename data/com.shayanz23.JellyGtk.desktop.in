@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=jellyplayer
-Exec=jellyplayer
-Icon=com.shayanz23.JellyPlayer
+Name=jellygtk
+Exec=jellygtk
+Icon=com.shayanz23.JellyGtk
 Terminal=false
 Type=Application
 Categories=GTK;

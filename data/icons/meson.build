@@ -1,4 +1,4 @@
-application_id = 'com.shayanz23.JellyPlayer'
+application_id = 'com.shayanz23.JellyGtk'
 
 scalable_dir = join_paths('hicolor', 'scalable', 'apps')
 install_data(

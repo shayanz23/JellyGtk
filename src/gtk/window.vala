@@ -19,7 +19,7 @@
  */
 
 namespace Jellyplayer {
-    [GtkTemplate (ui = "/com/shayanz23/JellyPlayer/gtk/window.ui")]
+    [GtkTemplate (ui = "/com/shayanz23/JellyGtk/gtk/window.ui")]
     public class Window : Adw.ApplicationWindow {
 
         public Window (Gtk.Application app) {
@@ -27,7 +27,7 @@ namespace Jellyplayer {
         }
 
         construct {
-            var settings = new GLib.Settings("com.shayanz23.JellyPlayer");
+            var settings = new GLib.Settings("com.shayanz23.JellyGtk");
             //move (settings.get_int ("pos-x"), settings.get_int ("pos-y"));
         }
 

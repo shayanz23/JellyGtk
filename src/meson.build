@@ -1,9 +1,9 @@
-jellyplayer_sources = [
+jellygtk_sources = [
   'main.vala',
   'application.vala',
 ]
 
-jellyplayer_deps = [
+jellygtk_deps = [
   dependency('gtk4'),
   dependency('libadwaita-1', version: '>= 1.2'),
   dependency ('libsoup-3.0'),
@@ -13,12 +13,12 @@ jellyplayer_deps = [
 subdir('gtk')
 subdir('api')
 
-jellyplayer_sources += gnome.compile_resources('jellyplayer-resources',
-  'jellyplayer.gresource.xml',
-  c_name: 'jellyplayer'
+jellygtk_sources += gnome.compile_resources('jellygtk-resources',
+  'jellygtk.gresource.xml',
+  c_name: 'jellygtk'
 )
 
-executable('jellyplayer', jellyplayer_sources,
-  dependencies: jellyplayer_deps,
+executable('jellygtk', jellygtk_sources,
+  dependencies: jellygtk_deps,
        install: true,
 )

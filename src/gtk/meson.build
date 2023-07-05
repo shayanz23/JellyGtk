@@ -1,4 +1,4 @@
-jellyplayer_sources += files(
+jellygtk_sources += files(
   'signInWindow.vala',
   'window.vala',
 )

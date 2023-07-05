@@ -1,4 +1,4 @@
-jellyplayer_sources += files(
+jellygtk_sources += files(
   'loginData.vala',
   'sessionInfo.vala',
   'loginData.vala',

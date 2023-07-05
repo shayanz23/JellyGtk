@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schemalist gettext-domain="jellyplayer">
-	<schema id="com.shayanz23.JellyPlayer" path="/com/shayanz23/JellyPlayer/">
+<schemalist gettext-domain="jellygtk">
+	<schema id="com.shayanz23.JellyGtk" path="/com/shayanz23/JellyGtk/">
 	  <key name="pos-x" type ="i">
 	    <default>360</default>
 	    <summary>Horizontal position</summary>

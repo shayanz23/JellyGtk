@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/com/shayanz23/JellyPlayer">
+  <gresource prefix="/com/shayanz23/JellyGtk">
     <file preprocess="xml-stripblanks">gtk/window.ui</file>
     <file preprocess="xml-stripblanks">gtk/signInWindow.ui</file>
     <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>

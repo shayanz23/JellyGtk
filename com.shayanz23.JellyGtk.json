@@ -1,12 +1,12 @@
 {
-    "app-id" : "com.shayanz23.JellyPlayer",
+    "app-id" : "com.shayanz23.JellyGtk",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "44",
     "sdk" : "org.gnome.Sdk",
     "sdk-extensions" : [
         "org.freedesktop.Sdk.Extension.vala"
     ],
-    "command" : "jellyplayer",
+    "command" : "jellygtk",
     "finish-args" : [
         "--share=network",
         "--share=ipc",
@@ -46,7 +46,7 @@
       ]
     },
         {
-            "name" : "jellyplayer",
+            "name" : "jellygtk",
             "builddir" : true,
             "buildsystem" : "meson",
             "sources" : [

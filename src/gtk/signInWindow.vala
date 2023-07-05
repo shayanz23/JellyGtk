@@ -2,7 +2,7 @@ using Jellyplayer.Api.Models;
 
 namespace Jellyplayer {
 
-    [GtkTemplate (ui = "/com/shayanz23/JellyPlayer/gtk/signInWindow.ui")]
+    [GtkTemplate (ui = "/com/shayanz23/JellyGtk/gtk/signInWindow.ui")]
 
     public class SignInWindow : Adw.Window {
 

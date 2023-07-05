@@ -1,4 +1,4 @@
-# JellyPlayer
+# JellyGtk
 
 ##incomplete!!!
 
