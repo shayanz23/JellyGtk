@@ -8,6 +8,7 @@ jellygtk_deps = [
   dependency('libadwaita-1', version: '>= 1.2'),
   dependency ('libsoup-3.0'),
   dependency ('json-glib-1.0'),
+  dependency ('gee-0.8'),
 ]
 
 subdir('gtk')

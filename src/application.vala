@@ -43,7 +43,7 @@ namespace Jellyplayer {
                 win = new Jellyplayer.Window (this);
             }
             win.present ();
-            signedIn = Jellyfin.Api.Authentication.check_token ();
+            signedIn = Jellyfin.Api.Authentication.authenticate_using_token ();
             show_login_window();
         }
 
