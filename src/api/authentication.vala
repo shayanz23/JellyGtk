@@ -1,4 +1,4 @@
-using Jellyplayer.Api;
+using Jellyplayer.Api.Models;
 using Gee;
 
 namespace Jellyfin.Api {
@@ -8,11 +8,11 @@ namespace Jellyfin.Api {
         public static string auth_token;
         public static string authorization;
         public static string authorization_with_token;
-        public static Jellyplayer.Api.Models.User current_user;
+        public static User current_user;
         public static new Jellyplayer.Application Application {get; set;}
 
 
-        public static int login (Jellyplayer.Api.Models.LoginData login_data, string url) {
+        public static int login (LoginData login_data, string url) {
             authorization = "MediaBrowser Client=\"other\", Device=\"my-script\", DeviceId=\"some-unique-id\", Version=\"0.0.0\"";
             var session = new Soup.Session ();
             var soup_msg = new Soup.Message ("POST", url + "/Users/AuthenticateByName");
@@ -289,7 +289,7 @@ namespace Jellyfin.Api {
         }
 
         public static int get_user_info (string json_res) {
-            Jellyplayer.Api.Models.User user;
+            User user;
             Json.Parser parser = new Json.Parser ();
 
             try {
@@ -312,8 +312,8 @@ namespace Jellyfin.Api {
             return 0;
         }
 
-        public static int set_user_info (out Jellyplayer.Api.Models.User user, Json.Object user_obj) {
-            user = new Jellyplayer.Api.Models.User();
+        public static int set_user_info (out User user, Json.Object user_obj) {
+            user = new User();
 
             user.name = user_obj.get_string_member ("Name");
             user.server_id = user_obj.get_string_member ("ServerId");
@@ -327,7 +327,7 @@ namespace Jellyfin.Api {
 
             Json.Object conf_obj = user_obj.get_object_member ("Configuration");
 
-            user.configuration = new Jellyplayer.Api.Models.UserConfiguration();
+            user.configuration = new UserConfiguration();
 
             user.configuration.play_default_audio_track = conf_obj.get_boolean_member ("PlayDefaultAudioTrack");
             user.configuration.subtitle_language_preference = conf_obj.get_string_member ("SubtitleLanguagePreference");
@@ -364,7 +364,7 @@ namespace Jellyfin.Api {
 
             Json.Object policy_obj = user_obj.get_object_member ("Policy");
 
-            user.policy = new Jellyplayer.Api.Models.UserPolicy ();
+            user.policy = new UserPolicy ();
 
             user.policy.is_administrator = policy_obj.get_boolean_member ("IsAdministrator");
             user.policy.is_hidden = policy_obj.get_boolean_member ("IsHidden");
