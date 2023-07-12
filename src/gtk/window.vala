@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-namespace Jellyplayer {
+namespace Jellygtk {
     [GtkTemplate (ui = "/com/shayanz23/JellyGtk/gtk/window.ui")]
     public class Window : Adw.ApplicationWindow {
 

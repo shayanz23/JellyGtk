@@ -1,4 +1,4 @@
-using Jellyplayer.Api.Models;
+using Jellygtk.Api.Models;
 using Gee;
 
 namespace Jellyfin.Api {
@@ -9,7 +9,7 @@ namespace Jellyfin.Api {
         public static string authorization;
         public static string authorization_with_token;
         public static User current_user;
-        public static new Jellyplayer.Application Application {get; set;}
+        public static new Jellygtk.Application Application {get; set;}
 
 
         public static int login (LoginData login_data, string url) {
@@ -54,7 +54,7 @@ namespace Jellyfin.Api {
             message (store_token_result);
             message (store_url_result);
             message (access_token);
-
+            message (current_user.name);
             return 0;
         }
 
@@ -104,6 +104,14 @@ namespace Jellyfin.Api {
 		        auth_token = access_token;
 		        message("authorization with token: " + authorization_with_token);
 
+                User user =  new User();
+                Json.Object user_obj = root_obj.get_object_member ("User");
+                int set_usr_success = set_user_info(out user, user_obj);
+
+                if (set_usr_success != 0) {
+                    return "failure getting";
+                }
+                current_user = user;
                 return access_token;
 	        } catch (Error e) {
 		      message (response);
@@ -195,6 +203,8 @@ namespace Jellyfin.Api {
             message (json_res);
             int get_user_res = get_user_info(json_res);
 
+            message (current_user.name);
+
             return true;
         }
 
@@ -242,6 +252,7 @@ namespace Jellyfin.Api {
         }
 
         public static int get_user_response (string url, string access_token, out string json_res) {
+            json_res = "";
             string test_auth_access_token = @"MediaBrowser Client=\"other\", Device=\"my-script\", DeviceId=\"some-unique-id\", Version=\"0.0.0\", Token=\"$access_token\"";
 
             var session = new Soup.Session ();
@@ -294,16 +305,17 @@ namespace Jellyfin.Api {
 
             try {
 		        parser.load_from_data (json_res);
-
 		        // Get the root node:
 		        Json.Node root_node = parser.get_root();
 
 		        Json.Object root_obj = root_node.get_object();
 
-
                 int set_info_stat = set_user_info (out user, root_obj);
 
-                return 0;
+                if (set_info_stat != 0) {
+                    return -1;
+                }
+                current_user = user;
 	        } catch (Error e) {
 		        message (e.message);
                 return -1;

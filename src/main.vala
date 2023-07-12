@@ -19,6 +19,6 @@
  */
 
 int main (string[] args) {
-    var app = new Jellyplayer.Application ();
+    var app = new Jellygtk.Application ();
     return app.run (args);
 }

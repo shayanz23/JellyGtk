@@ -2,7 +2,7 @@
 <interface>
   <requires lib="gtk" version="4.0" />
   <requires lib="Adw" version="1.0" />
-  <template class="JellyplayerSignInWindow" parent="AdwWindow">
+  <template class="JellygtkSignInWindow" parent="AdwWindow">
     <property name="default-width">400</property>
     <property name="default-height">400</property>
     <property name="title" translatable="yes">Sign In</property>
@@ -11,8 +11,7 @@
       <object class="GtkBox">
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkHeaderBar" id="header_bar">
-          </object>
+          <object class="GtkHeaderBar" id="header_bar"/>
         </child>
         <child>
           <object class="AdwClamp">

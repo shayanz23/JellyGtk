@@ -1,12 +1,12 @@
-using Jellyplayer.Api.Models;
+using Jellygtk.Api.Models;
 
-namespace Jellyplayer {
+namespace Jellygtk {
 
     [GtkTemplate (ui = "/com/shayanz23/JellyGtk/gtk/signInWindow.ui")]
 
     public class SignInWindow : Adw.Window {
 
-        private new Jellyplayer.Application application;
+        private new Jellygtk.Application application;
 
         [GtkChild]
         private unowned Adw.EntryRow url_entry;
@@ -17,7 +17,7 @@ namespace Jellyplayer {
         [GtkChild]
         private unowned Adw.EntryRow password_entry;
 
-        public SignInWindow (Jellyplayer.Application app) {
+        public SignInWindow (Jellygtk.Application app) {
             application = app;
         }
 

@@ -18,7 +18,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-namespace Jellyplayer {
+namespace Jellygtk {
     public class Application : Adw.Application {
         public bool signedIn { get; set; }
         public Application () {
@@ -40,7 +40,7 @@ namespace Jellyplayer {
             base.activate ();
             var win = this.active_window;
             if (win == null) {
-                win = new Jellyplayer.Window (this);
+                win = new Jellygtk.Window (this);
             }
             win.present ();
             signedIn = Jellyfin.Api.Authentication.authenticate_using_token ();
@@ -65,7 +65,7 @@ namespace Jellyplayer {
         private void show_login_window() {
             if (signedIn == false) {
                 Jellyfin.Api.Authentication.delete_auth_files ();
-                var signIn = new Jellyplayer.SignInWindow (this) {
+                var signIn = new Jellygtk.SignInWindow (this) {
                     transient_for = this.active_window,
                     modal = true,
                 };

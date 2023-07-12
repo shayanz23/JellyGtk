@@ -1,6 +1,6 @@
 using Gee;
 
-namespace Jellyplayer.Api.Models {
+namespace Jellygtk.Api.Models {
 
     public class User {
         public string name { get; set; }

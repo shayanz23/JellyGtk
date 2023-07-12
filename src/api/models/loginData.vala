@@ -1,4 +1,4 @@
-namespace Jellyplayer.Api.Models {
+namespace Jellygtk.Api.Models {
 
     public class LoginData {
 
